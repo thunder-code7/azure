@@ -1,0 +1,9 @@
+{
+	"name": "testingmigrateoracle",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e0dc9b35-a67e-4a91-901b-28003b597b3d",
+		"tenantId": "035ddef6-2433-48b6-8526-70ca8181f76d"
+	}
+}
