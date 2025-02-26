@@ -1,6 +1,25 @@
 {
 	"name": "PL_SQL_to_ADLS_Staging",
 	"properties": {
+		"activities": [
+			{
+				"name": "Copy_SQL_to_ADLS2",
+				"description": "copying data from SQL onprem to ADLS2\ndankdatastorage[staging-container[sqlstaging]]",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 3,
+					"retryIntervalInSeconds": 60,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"enableStaging": false
+				}
+			}
+		],
 		"annotations": []
 	}
 }
