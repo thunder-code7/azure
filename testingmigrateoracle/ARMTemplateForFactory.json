@@ -42,7 +42,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/ADLS_Staging_to_AzureSQL')]",
+			"name": "[concat(parameters('factoryName'), '/PL_ADLS_Staging_to_AzureSQL')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
