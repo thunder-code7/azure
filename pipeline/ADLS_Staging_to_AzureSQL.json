@@ -1,0 +1,6 @@
+{
+	"name": "ADLS_Staging_to_AzureSQL",
+	"properties": {
+		"annotations": []
+	}
+}
