@@ -105,7 +105,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"TableName": {
-										"value": "@concat(pipeline().parameters.TableName, '_*.parquet')\r\n",
+										"value": "@pipeline().parameters.TableName",
 										"type": "Expression"
 									}
 								}
@@ -290,7 +290,7 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": {
-						"value": "@dataset().TableName",
+						"value": "@first(dataset().TableName)",
 						"type": "Expression"
 					}
 				}
