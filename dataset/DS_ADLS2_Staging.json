@@ -22,7 +22,7 @@
 				"folderPath": "sqlstaging",
 				"fileSystem": "staging-container"
 			},
-			"compressionCodec": "snappy"
+			"compressionCodec": "none"
 		},
 		"schema": []
 	}
