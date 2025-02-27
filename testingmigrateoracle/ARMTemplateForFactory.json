@@ -43,68 +43,83 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_SQL_to_ADLS2",
-						"description": "copying data from SQL onprem to ADLS2\ndankdatastorage[staging-container[sqlstaging]]",
-						"type": "Copy",
+						"name": "foreach1",
+						"description": "Moving all tables to Adls from sql server on prem",
+						"type": "ForEach",
 						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 60,
-							"secureOutput": false,
-							"secureInput": false
-						},
 						"userProperties": [],
 						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"queryTimeout": "02:00:00",
-								"isolationLevel": "ReadCommitted",
-								"partitionOption": "None"
+							"items": {
+								"value": "[\n  \"customer_master\",\n  \"branch_master\",\n  \"account_master\",\n  \"transaction_details\",\n  \"loan_details\"\n]\n",
+								"type": "Expression"
 							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
+							"activities": [
+								{
+									"name": "Copy_SQL_to_ADLS2",
+									"description": "copying data from SQL onprem to ADLS2\ndankdatastorage[staging-container[sqlstaging]]",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 60,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "SqlServerSource",
+											"queryTimeout": "02:00:00",
+											"isolationLevel": "ReadCommitted",
+											"partitionOption": "None"
+										},
+										"sink": {
+											"type": "ParquetSink",
+											"storeSettings": {
+												"type": "AzureBlobFSWriteSettings"
+											},
+											"formatSettings": {
+												"type": "ParquetWriteSettings"
+											}
+										},
+										"enableStaging": false,
+										"translator": {
+											"type": "TabularTranslator",
+											"typeConversion": true,
+											"typeConversionSettings": {
+												"allowDataTruncation": true,
+												"treatBooleanAsNumber": false
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "DS_SQLServer_OnPrem",
+											"type": "DatasetReference",
+											"parameters": {
+												"TableName": {
+													"value": "@item()",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "DS_ADLS2_Staging",
+											"type": "DatasetReference",
+											"parameters": {
+												"TableName": {
+													"value": "@concat(item(),'_',utcNow(),'.parquet')",
+													"type": "Expression"
+												}
+											}
+										}
+									]
 								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DS_SQLServer_OnPrem",
-								"type": "DatasetReference",
-								"parameters": {
-									"TableName": {
-										"value": "@pipeline().parameters.TableName",
-										"type": "Expression"
-									}
-								}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DS_ADLS2_Staging",
-								"type": "DatasetReference",
-								"parameters": {
-									"TableName": {
-										"value": "@concat(pipeline().parameters.TableName, '_', utcnow(), '.parquet')\n",
-										"type": "Expression"
-									}
-								}
-							}
-						]
+							]
+						}
 					}
 				],
 				"policy": {
