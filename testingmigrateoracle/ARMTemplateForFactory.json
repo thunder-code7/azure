@@ -142,7 +142,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@concat(dataset().TableName, '_', utcNow(), '.parquet')",
+							"value": "@concat(dataset().TableName, '_', utcNow(), '.csv')",
 							"type": "Expression"
 						},
 						"folderPath": "sqlstaging",
