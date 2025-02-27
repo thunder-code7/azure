@@ -1,0 +1,10 @@
+{
+	"name": "LS_ADLS2_Staging_CSV",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://dankdatastorage.dfs.core.windows.net/"
+		}
+	}
+}
