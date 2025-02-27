@@ -11,6 +11,9 @@
 		"LS_ADLS2_Staging_properties_typeProperties_url": {
 			"value": "https://dankdatastorage.dfs.core.windows.net/"
 		},
+		"LS_ADLS2_Staging_CSV_properties_typeProperties_url": {
+			"value": "https://dankdatastorage.dfs.core.windows.net/"
+		},
 		"SqlServeronprem_properties_typeProperties_server": {
 			"value": "VIJAYKUMAR"
 		},
