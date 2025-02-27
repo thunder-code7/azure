@@ -1,5 +1,5 @@
 {
-	"name": "ADLS_Staging_to_AzureSQL",
+	"name": "PL_ADLS_Staging_to_AzureSQL",
 	"properties": {
 		"activities": [
 			{
