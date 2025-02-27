@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "testingmigrateoracle"
 		},
+		"LS_AzureSQL_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=vijaysqlazure.database.windows.net;Initial Catalog=bank"
+		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://onprem123.vault.azure.net/"
 		},
