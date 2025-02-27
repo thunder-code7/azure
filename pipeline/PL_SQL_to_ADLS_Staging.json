@@ -59,7 +59,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"TableName": {
-								"value": "@pipeline().parameters.TableName",
+								"value": "@concat(pipeline().parameters.TableName, '_', utcnow(), '.parquet')\n",
 								"type": "Expression"
 							}
 						}
