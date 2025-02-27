@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat(dataset().TableName, '_', utcnow(), '.csv')\n",
+					"value": "@concat(dataset().TableName, '_', utcNow(), '.csv')",
 					"type": "Expression"
 				},
 				"folderPath": "sqlstaging",
