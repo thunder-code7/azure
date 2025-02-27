@@ -2,7 +2,7 @@
 	"name": "DS_ADLS2_Staging",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_ADLS2_Staging",
+			"referenceName": "LS_ADLS2_Staging_CSV",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
