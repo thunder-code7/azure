@@ -403,7 +403,7 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"TableName": {
-													"value": "@concat(item(),'_',utcNow(),'.parquet')",
+													"value": "item().parquet",
 													"type": "Expression"
 												}
 											}
