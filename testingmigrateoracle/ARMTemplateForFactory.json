@@ -54,7 +54,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@json('[\"account_master\", \"customer_master\", \"branch_master\",  \"loan_details\", \"transaction_details\"]')\n\n",
+								"value": "@json('[\"customer_master\",\"account_master\", \"branch_master\",  \"loan_details\", \"transaction_details\"]')\n\n",
 								"type": "Expression"
 							},
 							"activities": [
@@ -85,7 +85,8 @@
 										"sink": {
 											"type": "AzureSqlSink",
 											"writeBehavior": "insert",
-											"sqlWriterUseTableLock": false
+											"sqlWriterUseTableLock": false,
+											"disableMetricsCollection": false
 										},
 										"enableStaging": false,
 										"translator": {
