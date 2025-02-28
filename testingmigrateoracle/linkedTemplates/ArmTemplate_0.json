@@ -403,7 +403,7 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"TableName": {
-													"value": "item().parquet",
+													"value": "@concat(item(),'.parquet')",
 													"type": "Expression"
 												}
 											}
