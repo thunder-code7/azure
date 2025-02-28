@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@json('[\"customer_master\", \"branch_master\", \"account_master\", \"transaction_details\", \"loan_details\"]')\n\n",
+						"value": "@json('[\"account_master\", \"customer_master\", \"branch_master\",  \"loan_details\", \"transaction_details\"]')\n\n",
 						"type": "Expression"
 					},
 					"activities": [
