@@ -158,7 +158,7 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": {
-						"value": "@first(dataset().TableName)",
+						"value": "dataset().TableName",
 						"type": "Expression"
 					}
 				}
@@ -221,15 +221,6 @@
 						"typeProperties": {
 							"source": {
 								"type": "ParquetSource",
-								"additionalColumns": [
-									{
-										"name": "TImestamp",
-										"value": {
-											"value": "@utcNow()",
-											"type": "Expression"
-										}
-									}
-								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
