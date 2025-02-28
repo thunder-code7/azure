@@ -158,7 +158,7 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": {
-						"value": "dataset().TableName",
+						"value": "@dataset().TableName",
 						"type": "Expression"
 					}
 				}
